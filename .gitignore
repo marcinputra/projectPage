@@ -1,0 +1,6 @@
+# ignorowanie pakietów instalowanych przez npm
+node_modules
+
+# pliki które nie mają być wysyłane na git'a
+*.bak
+*~

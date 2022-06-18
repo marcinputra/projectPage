@@ -1,0 +1,17 @@
+{
+  "name": "projectpage",
+  "version": "1.0.0",
+  "description": "website written with node.js",
+  "main": "projectPage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "website"
+  ],
+  "author": "Marcin Putra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
