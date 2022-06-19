@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
+// obsługa statycznych plików, dodajemy folder ./public
+app.use(express.static( __dirname + '/public' ))
+
+
 
 // konfiguacja silnika widoków 
 // instalacja poprzez komendę: npm install express-handlebars
