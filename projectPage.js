@@ -1,3 +1,4 @@
+const fortune = require('./lib/fortunerandom')
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
@@ -13,29 +14,23 @@ app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
 app.set('views','./views')
 
-// tablica losowych wpisow 
-const fortunes = [
-    "Przyjmnego dnia na początek tygodnia.",
-    "Nie obawiaj się dzisiejszego dnia. Ładna pogoda.",
-    "Wygrałeś dziś wyjazd na wakacje, do Hiszpani.",
-]
 
+// losowanie z pliku fortunerandom.js
 app.get('/random',(req,res) => {
-    const randomfortunes = fortunes[Math.floor(Math.random()*fortunes.length)]
-    res.render('random',{fortune: randomfortunes})
+    res.render('random',{fortune: fortune.getFortuneRandom() })
 })
 
-// // strona główna i podstrony
+// strona główna i podstrony
 app.get('/',(req,res) => {res.render('home')})
 app.get('/about',(req,res) => {res.render('about')})
 
-// // niestandardowa strona 404
+// niestandardowa strona 404
 app.use((req, res) => {
     res.status(404)
     res.render('404')
 })
 
-// // niestandradowa strona 500
+// niestandradowa strona 500
 app.use((err, req, res, next) => {
     console.error(err.message)
     res.status(500)
