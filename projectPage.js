@@ -5,8 +5,6 @@ const port = process.env.PORT || 3000
 // obsługa statycznych plików, dodajemy folder ./public
 app.use(express.static( __dirname + '/public' ))
 
-
-
 // konfiguacja silnika widoków 
 // instalacja poprzez komendę: npm install express-handlebars
 // dodanie silnika widoków
@@ -15,6 +13,17 @@ app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
 app.set('views','./views')
 
+// tablica losowych wpisow 
+const fortunes = [
+    "Przyjmnego dnia na początek tygodnia.",
+    "Nie obawiaj się dzisiejszego dnia. Ładna pogoda.",
+    "Wygrałeś dziś wyjazd na wakacje, do Hiszpani.",
+]
+
+app.get('/random',(req,res) => {
+    const randomfortunes = fortunes[Math.floor(Math.random()*fortunes.length)]
+    res.render('random',{fortune: randomfortunes})
+})
 
 // // strona główna i podstrony
 app.get('/',(req,res) => {res.render('home')})
