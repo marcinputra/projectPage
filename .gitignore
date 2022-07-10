@@ -4,3 +4,4 @@ node_modules
 # pliki które nie mają być wysyłane na git'a
 *.bak
 *~
+*.txt
