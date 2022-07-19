@@ -51,8 +51,8 @@ app.use( handlers.serverError)
 // zmiana .listen na potrzeby testów puppeteer
 if(require.main == module) {
     app.listen(port, () => {
-        console.log(`Express został uruchomony pod adresem http:///localhost:${port}; `+
-        `Naciśnij Ctrl-C, aby zakończyć.`)
+        console.log(`Express został uruchomony pod adresem http://localhost:${port}; `+
+        `Naciśnij Ctrl-C, aby zakończyć.`+`\nprzechodzenie do http://localhost:${port}/headers\n`)
     }) 
 } else {
     module.exports = app
